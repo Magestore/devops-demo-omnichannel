@@ -20,8 +20,12 @@ services:
         container_name: phpmyadmin
         ports:
         - "8080:80"
+        link:
+        - api
+        - basic-m2
         environment:
-        - PMA_HOSTS:basic-m2
+        - PMA_PORT: 3306
+        - PMA_HOSTS: basic-m2
     basic-m2:
         image: magestore/omnichannel_m2
         container_name: basic-m2
