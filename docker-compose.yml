@@ -25,6 +25,9 @@ services:
     basic-m2:
         image: magestore/omnichannel_m2
         container_name: basic-m2
+        expose:
+        - 80
+        - 443
         ports:
         - "80"
         - "443"
