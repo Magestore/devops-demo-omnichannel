@@ -1,6 +1,33 @@
-version: 2
+version: '2'
 services:
     proxy:
+        image: nginx
+        container_name: proxy
+        ports:
+        - "80:80"
+        - "443:443"
+        - "3306:3306"
+        volumes:
+        ## Data.
+        - ./:/omnisys
+        - ./nginx/conf.d:/etc/nginx/conf.d
     api:
+        image: python
+        container_name: api
+        ports:
+        - 80
     phpmyadmin:
-
+        image: phpmyadmin
+        container_name: phpmyadmin
+        ports:
+        - "8080:80"
+    basic-m2:
+        image: magestore/omnichannel_m2
+        container_name: basic-m2
+        ports:
+        - "80"
+        - "443"
+        volumes:
+          - ./data/www:/var/www/html
+          - ./data/mysql:/var/lib/mysql
+          - ./config/apache2:/etc/apache2
