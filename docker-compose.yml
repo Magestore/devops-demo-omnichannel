@@ -8,21 +8,21 @@ services:
         - "443:443"
         - "3306:3306"
         volumes:
-        - ./:/omnisys
+        - ./nginx/ssl:/etc/nginx/ssl
         - ./nginx/conf.d:/etc/nginx/conf.d
     api:
         image: magestore/python-api
         container_name: api
         expose:
         - 80
+        volumes:
+        - ./:/omnisys
+        - ./api:/app
     phpmyadmin:
         image: phpmyadmin/phpmyadmin
         container_name: phpmyadmin
         ports:
         - "8080:80"
-        links:
-        - api
-        - basic-m2
         environment:
         - PMA_PORT:3306
         - PMA_HOSTS:basic-m2
