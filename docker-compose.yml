@@ -13,7 +13,7 @@ services:
     api:
         image: magestore/python-api
         container_name: api
-        ports:
+        expose:
         - 80
     phpmyadmin:
         image: phpmyadmin/phpmyadmin
