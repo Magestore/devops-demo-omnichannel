@@ -28,9 +28,6 @@ services:
         expose:
         - 80
         - 443
-        ports:
-        - "80"
-        - "443"
         volumes:
           - ./basic-m2/data/www:/var/www/html
           - ./basic-m2/data/mysql:/var/lib/mysql
