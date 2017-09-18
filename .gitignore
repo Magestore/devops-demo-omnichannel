@@ -1,0 +1,6 @@
+/*
+!.gitignore
+!/nginx
+!/basic-m2
+!/api
+!docker-compose.yml
