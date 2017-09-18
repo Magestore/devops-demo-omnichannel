@@ -20,7 +20,7 @@ services:
         container_name: phpmyadmin
         ports:
         - "8080:80"
-        link:
+        links:
         - api
         - basic-m2
         environment:
