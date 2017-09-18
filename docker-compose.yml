@@ -32,6 +32,6 @@ services:
         - "80"
         - "443"
         volumes:
-          - ./data/www:/var/www/html
-          - ./data/mysql:/var/lib/mysql
-          - ./config/apache2:/etc/apache2
+          - ./basic-m2/data/www:/var/www/html
+          - ./basic-m2/data/mysql:/var/lib/mysql
+          - ./basic-m2/config/apache2:/etc/apache2
