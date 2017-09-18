@@ -25,7 +25,7 @@ services:
         - "8080:80"
         environment:
         - PMA_PORT:3306
-        - PMA_HOSTS:basic-m2
+        - PMA_HOSTS:basic-m2,starter-m2,grow-m2
     basic-m2:
         image: magestore/omnichannel_m2
         container_name: basic-m2
