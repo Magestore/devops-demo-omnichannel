@@ -13,6 +13,7 @@ RUN apt-get upgrade -y
 RUN apt-get install -y \
 	php7.0 \
 	php7.0-bz2 \
+	php7.0-zip \
 	php7.0-cgi \
 	php7.0-cli \
 	php7.0-common \
