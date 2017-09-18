@@ -23,7 +23,7 @@ services:
         container_name: phpmyadmin
         ports:
         - "8080:80"
-        environment:
+        environments:
         - PMA_PORT:3306
         - PMA_HOSTS:basic-m2,starter-m2,grow-m2
     basic-m2:
