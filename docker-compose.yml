@@ -11,12 +11,12 @@ services:
         - ./:/omnisys
         - ./nginx/conf.d:/etc/nginx/conf.d
     api:
-        image: python
+        image: magestore/python-api
         container_name: api
         ports:
         - 80
     phpmyadmin:
-        image: phpmyadmin
+        image: phpmyadmin/phpmyadmin
         container_name: phpmyadmin
         ports:
         - "8080:80"
