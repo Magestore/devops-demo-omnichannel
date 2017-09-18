@@ -8,7 +8,6 @@ services:
         - "443:443"
         - "3306:3306"
         volumes:
-        ## Data.
         - ./:/omnisys
         - ./nginx/conf.d:/etc/nginx/conf.d
     api:
