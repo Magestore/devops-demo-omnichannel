@@ -1,38 +1,38 @@
 version: '2'
 services:
-    proxy:
-        image: nginx
-        container_name: proxy
-        ports:
-        - "80:80"
-        - "443:443"
-        - "3306:3306"
-        volumes:
-        - ./nginx/ssl:/etc/nginx/ssl
-        - ./nginx/conf.d:/etc/nginx/conf.d
-    api:
-        image: magestore/python-api
-        container_name: api
-        expose:
-        - 80
-        volumes:
-        - ./:/omnisys
-        - ./api:/app
-    phpmyadmin:
-        image: phpmyadmin/phpmyadmin
-        container_name: phpmyadmin
-        ports:
-        - "8080:80"
-        environment:
-        - PMA_PORT=3306
-        - PMA_HOSTS=basic-m2,starter-m2,grow-m2
-    basic-m2:
-        image: magestore/omnichannel_m2
-        container_name: basic-m2
-        expose:
-        - 80
-        - 443
-        volumes:
-          - ./basic-m2/data/www:/var/www/html
-          - ./basic-m2/data/mysql:/var/lib/mysql
-          - ./basic-m2/config/apache2:/etc/apache2
+  proxy:
+    image: nginx
+    container_name: proxy
+    ports:
+    - "80:80"
+    - "443:443"
+    - "3306:3306"
+    volumes:
+    - ./nginx/ssl:/etc/nginx/ssl
+    - ./nginx/conf.d:/etc/nginx/conf.d
+  api:
+    image: magestore/python-api
+    container_name: api
+    expose:
+    - 80
+    volumes:
+    - ./:/omnisys
+    - ./api:/app
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    ports:
+    - "8080:80"
+    environment:
+    - PMA_PORT=3306
+    - PMA_HOSTS=basic-m2,starter-m2
+  basic-m2:
+    image: magestore/omnichannel_m2
+    container_name: basic-m2
+    expose:
+    - 80
+    - 443
+    volumes:
+    - ./basic-m2/data/www:/var/www/html
+    - ./basic-m2/data/mysql:/var/lib/mysql
+    - ./basic-m2/config/apache2:/etc/apache2

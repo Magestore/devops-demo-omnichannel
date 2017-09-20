@@ -3,4 +3,5 @@
 !/nginx
 !/basic-m2
 !/api
+!/template-m2
 !docker-compose.yml
