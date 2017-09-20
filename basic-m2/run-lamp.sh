@@ -55,6 +55,9 @@ fi
 # Set PHP timezone
 /bin/sed -i "s/\;date\.timezone\ \=/date\.timezone\ \=\ ${DATE_TIMEZONE}/" /etc/php/7.0/apache2/php.ini
 
+# Run ssh
+/etc/init.d/ssh start
+
 # Run Postfix
 #/usr/sbin/postfix start
 
