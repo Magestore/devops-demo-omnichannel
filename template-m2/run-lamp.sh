@@ -55,13 +55,18 @@ fi
 # Set PHP timezone
 /bin/sed -i "s/\;date\.timezone\ \=/date\.timezone\ \=\ ${DATE_TIMEZONE}/" /etc/php/7.0/apache2/php.ini
 
+# Run ssh
+/etc/init.d/ssh start
+
 # Run Postfix
 #/usr/sbin/postfix start
 
 # Run MariaDB
+chown -R mysql:mysql /var/lib/mysql
 /usr/bin/mysqld_safe --timezone=${DATE_TIMEZONE}&
 
 # Run Apache:
+chown -R www-data:www-data /var/www/html
 if [ $LOG_LEVEL == 'debug' ]; then
     /usr/sbin/apachectl -DFOREGROUND -k start -e debug
 else
