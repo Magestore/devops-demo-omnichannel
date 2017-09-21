@@ -25,7 +25,7 @@ services:
     - "8080:80"
     environment:
     - PMA_PORT=3306
-    - PMA_HOSTS=basic-m2,starter-m2,grow-m2
+    - PMA_HOSTS=basic-m2,starter-m2,grow-m2,starter-m2-copy,starter-m2-copy2,grow-m2-copy,grow-m2-copy2,template-m2-copy
   basic-m2:
     image: magestore/omnichannel_m2
     container_name: basic-m2
@@ -46,3 +46,63 @@ services:
     - ./grow-m2/data/mysql:/var/lib/mysql
     - ./grow-m2/config/apache2:/etc/apache2
     container_name: grow-m2
+  starter-m2:
+    image: magestore/omnichannel_m2
+    expose:
+    - '80'
+    - '443'
+    volumes:
+    - ./starter-m2/data/www:/var/www/html
+    - ./starter-m2/data/mysql:/var/lib/mysql
+    - ./starter-m2/config/apache2:/etc/apache2
+    container_name: starter-m2
+  starter-m2-copy:
+    image: magestore/omnichannel_m2
+    expose:
+    - '80'
+    - '443'
+    volumes:
+    - ./starter-m2-copy/data/www:/var/www/html
+    - ./starter-m2-copy/data/mysql:/var/lib/mysql
+    - ./starter-m2-copy/config/apache2:/etc/apache2
+    container_name: starter-m2-copy
+  starter-m2-copy2:
+    image: magestore/omnichannel_m2
+    expose:
+    - '80'
+    - '443'
+    volumes:
+    - ./starter-m2-copy2/data/www:/var/www/html
+    - ./starter-m2-copy2/data/mysql:/var/lib/mysql
+    - ./starter-m2-copy2/config/apache2:/etc/apache2
+    container_name: starter-m2-copy2
+  grow-m2-copy:
+    image: magestore/omnichannel_m2
+    expose:
+    - '80'
+    - '443'
+    volumes:
+    - ./grow-m2-copy/data/www:/var/www/html
+    - ./grow-m2-copy/data/mysql:/var/lib/mysql
+    - ./grow-m2-copy/config/apache2:/etc/apache2
+    container_name: grow-m2-copy
+  grow-m2-copy2:
+    image: magestore/omnichannel_m2
+    expose:
+    - '80'
+    - '443'
+    volumes:
+    - ./grow-m2-copy2/data/www:/var/www/html
+    - ./grow-m2-copy2/data/mysql:/var/lib/mysql
+    - ./grow-m2-copy2/config/apache2:/etc/apache2
+    container_name: grow-m2-copy2
+  template-m2-copy:
+    image: magestore/omnichannel_m2
+    expose:
+    - '80'
+    - '443'
+    volumes:
+    - ./template-m2-copy/data/www:/var/www/html
+    - ./template-m2-copy/data/mysql:/var/lib/mysql
+    - ./template-m2-copy/config/apache2:/etc/apache2
+    container_name: template-m2-copy
