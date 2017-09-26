@@ -25,9 +25,9 @@ services:
     - "8080:80"
     environment:
     - PMA_PORT=3306
-    - PMA_HOSTS=basic-m2,starter-m2,grow-m2,starter-m2-copy,starter-m2-copy2,grow-m2-copy,grow-m2-copy2,template-m2-copy,grow-m2-from-template,starter-m2-01
+    - PMA_HOSTS=basic-m2,starter-m2,grow-m2,starter-m2-copy,starter-m2-copy2,grow-m2-copy,grow-m2-copy2,template-m2-copy,grow-m2-from-template,starter-m2-01,grow-m2-01,grow-m2-02,grow-plus-m2-01,grow-m2-demo-new
   basic-m2:
-    image: magestore/omni-starter-m2
+    image: magestore/omnichannel_m2
     container_name: basic-m2
     expose:
     - 80
@@ -50,7 +50,7 @@ services:
     container_name: grow-m2
     restart: always
   starter-m2:
-    image: magestore/omnichannel_m2
+    image: magestore/omni-starter-m2
     ports:
     - '221:22'
     expose:
@@ -132,3 +132,43 @@ services:
     - ./starter-m2-01/data/mysql:/var/lib/mysql
     - ./starter-m2-01/config/apache2:/etc/apache2
     container_name: starter-m2-01
+  grow-m2-01:
+    image: magestore/omnichannel_m2
+    expose:
+    - '80'
+    - '443'
+    volumes:
+    - ./grow-m2-01/data/www:/var/www/html
+    - ./grow-m2-01/data/mysql:/var/lib/mysql
+    - ./grow-m2-01/config/apache2:/etc/apache2
+    container_name: grow-m2-01
+  grow-m2-02:
+    image: magestore/omnichannel_m2
+    expose:
+    - '80'
+    - '443'
+    volumes:
+    - ./grow-m2-02/data/www:/var/www/html
+    - ./grow-m2-02/data/mysql:/var/lib/mysql
+    - ./grow-m2-02/config/apache2:/etc/apache2
+    container_name: grow-m2-02
+  grow-plus-m2-01:
+    image: magestore/omnichannel_m2
+    expose:
+    - '80'
+    - '443'
+    volumes:
+    - ./grow-plus-m2-01/data/www:/var/www/html
+    - ./grow-plus-m2-01/data/mysql:/var/lib/mysql
+    - ./grow-plus-m2-01/config/apache2:/etc/apache2
+    container_name: grow-plus-m2-01
+  grow-m2-demo-new:
+    image: magestore/omnichannel_m2
+    expose:
+    - '80'
+    - '443'
+    volumes:
+    - ./grow-m2-demo-new/data/www:/var/www/html
+    - ./grow-m2-demo-new/data/mysql:/var/lib/mysql
+    - ./grow-m2-demo-new/config/apache2:/etc/apache2
+    container_name: grow-m2-demo-new
