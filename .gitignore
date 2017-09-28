@@ -4,4 +4,5 @@
 !/basic-m2
 !/api
 !/template-m2
+!/template_m2
 !docker-compose.yml

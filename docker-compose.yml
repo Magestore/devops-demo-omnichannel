@@ -3,6 +3,7 @@ services:
   proxy:
     image: nginx
     container_name: proxy
+    #restart: always
     ports:
     - "80:80"
     - "443:443"
@@ -13,6 +14,7 @@ services:
   api:
     image: magestore/python-api
     container_name: api
+    restart: always
     expose:
     - 80
     volumes:
@@ -21,11 +23,12 @@ services:
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     container_name: phpmyadmin
+    restart: always
     ports:
     - "8080:80"
     environment:
     - PMA_PORT=3306
-    - PMA_HOSTS=basic-m2,starter-m2,grow-m2,starter-m2-copy,starter-m2-copy2,grow-m2-copy,grow-m2-copy2,template-m2-copy,grow-m2-from-template,starter-m2-01,grow-m2-01,grow-m2-02,grow-plus-m2-01,grow-m2-demo-new
+    - PMA_HOSTS=basic-m2,starter-m2,grow-m2,starter-m2-copy,starter-m2-copy2,grow-m2-copy,grow-m2-copy2,template-m2-copy,grow-m2-from-template,starter-m2-01,grow-m2-01,grow-m2-02,grow-plus-m2-01,grow-m2-demo-new,grow-m2-demo-new-2,starter-m2-836382,starter-09awt3423s,grow-m2-standard-alice,grow-m2-standard-alice-new,starter-2017092601,grow-test-2017092601,starter-m2-standard-new-by-tit,grow-m2-standard-lollipop,grow-m2-standard-andrew,grow-m2-demo,starter-m2-standard-tit-test,starter-m2-standard-test,grow-m2-standard-test,template_grow-m2-standard-02,grow-m2-standard-test-02,starter-m2-standard-test-02
   basic-m2:
     image: magestore/omnichannel_m2
     container_name: basic-m2
@@ -172,3 +175,173 @@ services:
     - ./grow-m2-demo-new/data/mysql:/var/lib/mysql
     - ./grow-m2-demo-new/config/apache2:/etc/apache2
     container_name: grow-m2-demo-new
+  grow-m2-demo-new-2:
+    image: magestore/omnichannel_m2
+    expose:
+    - '80'
+    - '443'
+    volumes:
+    - ./grow-m2-demo-new-2/data/www:/var/www/html
+    - ./grow-m2-demo-new-2/data/mysql:/var/lib/mysql
+    - ./grow-m2-demo-new-2/config/apache2:/etc/apache2
+    container_name: grow-m2-demo-new-2
+  starter-m2-836382:
+    image: magestore/omnichannel_m2
+    expose:
+    - '80'
+    - '443'
+    volumes:
+    - ./starter-m2-836382/data/www:/var/www/html
+    - ./starter-m2-836382/data/mysql:/var/lib/mysql
+    - ./starter-m2-836382/config/apache2:/etc/apache2
+    container_name: starter-m2-836382
+  starter-09awt3423s:
+    image: magestore/omnichannel_m2
+    expose:
+    - '80'
+    - '443'
+    volumes:
+    - ./starter-09awt3423s/data/www:/var/www/html
+    - ./starter-09awt3423s/data/mysql:/var/lib/mysql
+    - ./starter-09awt3423s/config/apache2:/etc/apache2
+    container_name: starter-09awt3423s
+  grow-m2-standard-alice:
+    image: magestore/omnichannel_m2
+    expose:
+    - '80'
+    - '443'
+    volumes:
+    - ./grow-m2-standard-alice/data/www:/var/www/html
+    - ./grow-m2-standard-alice/data/mysql:/var/lib/mysql
+    - ./grow-m2-standard-alice/config/apache2:/etc/apache2
+    container_name: grow-m2-standard-alice
+  grow-m2-standard-alice-new:
+    image: magestore/omnichannel_m2
+    expose:
+    - '80'
+    - '443'
+    volumes:
+    - ./grow-m2-standard-alice-new/data/www:/var/www/html
+    - ./grow-m2-standard-alice-new/data/mysql:/var/lib/mysql
+    - ./grow-m2-standard-alice-new/config/apache2:/etc/apache2
+    container_name: grow-m2-standard-alice-new
+  starter-2017092601:
+    image: magestore/omnichannel_m2
+    expose:
+    - '80'
+    - '443'
+    volumes:
+    - ./starter-2017092601/data/www:/var/www/html
+    - ./starter-2017092601/data/mysql:/var/lib/mysql
+    - ./starter-2017092601/config/apache2:/etc/apache2
+    container_name: starter-2017092601
+  grow-test-2017092601:
+    image: magestore/omnichannel_m2
+    expose:
+    - '80'
+    - '443'
+    volumes:
+    - ./grow-test-2017092601/data/www:/var/www/html
+    - ./grow-test-2017092601/data/mysql:/var/lib/mysql
+    - ./grow-test-2017092601/config/apache2:/etc/apache2
+    container_name: grow-test-2017092601
+  starter-m2-standard-new-by-tit:
+    image: magestore/omnichannel_m2
+    expose:
+    - '80'
+    - '443'
+    volumes:
+    - ./starter-m2-standard-new-by-tit/data/www:/var/www/html
+    - ./starter-m2-standard-new-by-tit/data/mysql:/var/lib/mysql
+    - ./starter-m2-standard-new-by-tit/config/apache2:/etc/apache2
+    container_name: starter-m2-standard-new-by-tit
+  grow-m2-standard-lollipop:
+    image: magestore/omnichannel_m2
+    expose:
+    - '80'
+    - '443'
+    volumes:
+    - ./grow-m2-standard-lollipop/data/www:/var/www/html
+    - ./grow-m2-standard-lollipop/data/mysql:/var/lib/mysql
+    - ./grow-m2-standard-lollipop/config/apache2:/etc/apache2
+    container_name: grow-m2-standard-lollipop
+  grow-m2-standard-andrew:
+    image: magestore/omnichannel_m2
+    expose:
+    - '80'
+    - '443'
+    volumes:
+    - ./grow-m2-standard-andrew/data/www:/var/www/html
+    - ./grow-m2-standard-andrew/data/mysql:/var/lib/mysql
+    - ./grow-m2-standard-andrew/config/apache2:/etc/apache2
+    container_name: grow-m2-standard-andrew
+  grow-m2-demo:
+    image: magestore/omnichannel_m2
+    expose:
+    - '80'
+    - '443'
+    volumes:
+    - ./grow-m2-demo/data/www:/var/www/html
+    - ./grow-m2-demo/data/mysql:/var/lib/mysql
+    - ./grow-m2-demo/config/apache2:/etc/apache2
+    container_name: grow-m2-demo
+  starter-m2-standard-tit-test:
+    image: magestore/omnichannel_m2
+    expose:
+    - '80'
+    - '443'
+    volumes:
+    - ./starter-m2-standard-tit-test/data/www:/var/www/html
+    - ./starter-m2-standard-tit-test/data/mysql:/var/lib/mysql
+    - ./starter-m2-standard-tit-test/config/apache2:/etc/apache2
+    container_name: starter-m2-standard-tit-test
+  starter-m2-standard-test:
+    image: magestore/omnichannel_m2
+    expose:
+    - '80'
+    - '443'
+    volumes:
+    - ./starter-m2-standard-test/data/www:/var/www/html
+    - ./starter-m2-standard-test/data/mysql:/var/lib/mysql
+    - ./starter-m2-standard-test/config/apache2:/etc/apache2
+    container_name: starter-m2-standard-test
+  grow-m2-standard-test:
+    image: magestore/omnichannel_m2
+    expose:
+    - '80'
+    - '443'
+    volumes:
+    - ./grow-m2-standard-test/data/www:/var/www/html
+    - ./grow-m2-standard-test/data/mysql:/var/lib/mysql
+    - ./grow-m2-standard-test/config/apache2:/etc/apache2
+    container_name: grow-m2-standard-test
+  template_grow-m2-standard-02:
+    image: magestore/omnichannel_m2
+    expose:
+    - '80'
+    - '443'
+    volumes:
+    - ./template_grow-m2-standard-02/data/www:/var/www/html
+    - ./template_grow-m2-standard-02/data/mysql:/var/lib/mysql
+    - ./template_grow-m2-standard-02/config/apache2:/etc/apache2
+    container_name: template_grow-m2-standard-02
+  grow-m2-standard-test-02:
+    image: magestore/omnichannel_m2
+    expose:
+    - '80'
+    - '443'
+    volumes:
+    - ./grow-m2-standard-test-02/data/www:/var/www/html
+    - ./grow-m2-standard-test-02/data/mysql:/var/lib/mysql
+    - ./grow-m2-standard-test-02/config/apache2:/etc/apache2
+    container_name: grow-m2-standard-test-02
+  starter-m2-standard-test-02:
+    image: magestore/omnichannel_m2
+    expose:
+    - '80'
+    - '443'
+    volumes:
+    - ./starter-m2-standard-test-02/data/www:/var/www/html
+    - ./starter-m2-standard-test-02/data/mysql:/var/lib/mysql
+    - ./starter-m2-standard-test-02/config/apache2:/etc/apache2
+    container_name: starter-m2-standard-test-02
