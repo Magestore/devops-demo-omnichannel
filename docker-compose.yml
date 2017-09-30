@@ -28,7 +28,7 @@ services:
     - "8080:80"
     environment:
     - PMA_PORT=3306
-    - PMA_HOSTS=basic-m2,starter-m2,grow-m2,starter-m2-copy,starter-m2-copy2,grow-m2-copy,grow-m2-copy2,template-m2-copy,grow-m2-from-template,starter-m2-01,grow-m2-01,grow-m2-02,grow-plus-m2-01,grow-m2-demo-new,grow-m2-demo-new-2,starter-m2-836382,starter-09awt3423s,grow-m2-standard-alice,grow-m2-standard-alice-new,starter-2017092601,grow-test-2017092601,starter-m2-standard-new-by-tit,grow-m2-standard-lollipop,grow-m2-standard-andrew,grow-m2-demo,starter-m2-standard-tit-test,starter-m2-standard-test,grow-m2-standard-test,template_grow-m2-standard-02,grow-m2-standard-test-02,starter-m2-standard-test-02,starter-m2-standard-test-grow-m2
+    - PMA_HOSTS=basic-m2,starter-m2,grow-m2,starter-m2-copy,starter-m2-copy2,grow-m2-copy,grow-m2-copy2,template-m2-copy,grow-m2-from-template,starter-m2-01,grow-m2-01,grow-m2-02,grow-plus-m2-01,grow-m2-demo-new,grow-m2-demo-new-2,starter-m2-836382,starter-09awt3423s,grow-m2-standard-alice,grow-m2-standard-alice-new,starter-2017092601,grow-test-2017092601,starter-m2-standard-new-by-tit,grow-m2-standard-lollipop,grow-m2-standard-andrew,grow-m2-demo,starter-m2-standard-tit-test,starter-m2-standard-test,grow-m2-standard-test,template_grow-m2-standard-02,grow-m2-standard-test-02,starter-m2-standard-test-02,starter-m2-standard-test-grow-m2,starter-m2-dev
   basic-m2:
     image: magestore/omnichannel_m2
     container_name: basic-m2
@@ -355,3 +355,15 @@ services:
     - ./starter-m2-standard-test-grow-m2/data/mysql:/var/lib/mysql
     - ./starter-m2-standard-test-grow-m2/config/apache2:/etc/apache2
     container_name: starter-m2-standard-test-grow-m2
+  starter-m2-dev:
+    image: magestore/omni-starter-m2
+    ports:
+    - '223:22'
+    expose:
+    - '80'
+    - '443'
+    volumes:
+    - ./starter-m2-dev/data/www:/var/www/html
+    - ./starter-m2-dev/data/mysql:/var/lib/mysql
+    - ./starter-m2-dev/config/apache2:/etc/apache2
+    container_name: starter-m2-dev
