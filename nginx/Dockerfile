@@ -23,4 +23,4 @@ RUN chmod +x /entrypoint.sh
 
 VOLUME /etc/enginx/conf.d
 
-CMD ['/entrypoint.sh']
+CMD ["/entrypoint.sh"]
