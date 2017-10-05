@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# Run ssh
-#/etc/init.d/ssh start & \
-# Run Nginx
-nginx -q
+# Run Nginx & Run ssh
+nginx -g "daemon off;" & /etc/init.d/ssh start
+
