@@ -24,5 +24,3 @@ RUN chmod +x /entrypoint.sh
 VOLUME /etc/enginx/conf.d
 
 ENTRYPOINT ["/entrypoint.sh"]
-
-CMD ["nginx", "-g", "daemon off;"]
