@@ -3,4 +3,4 @@
 # Run ssh
 /etc/init.d/ssh start & \
 # Run Nginx
-/usr/sbin/nginx
+/usr/sbin/nginx -q
