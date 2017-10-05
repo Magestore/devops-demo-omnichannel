@@ -23,4 +23,6 @@ RUN chmod +x /entrypoint.sh
 
 VOLUME /etc/enginx/conf.d
 
-CMD ["bash", "/entrypoint.sh"]
+RUN /etc/init.d/ssh start
+
+CMD ["nginx", "-g", "daemon off;"]
